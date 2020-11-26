@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header/Header";
-import { GlobalStyles, lightTheme } from "./theme";
+import { darkTheme, GlobalStyles, lightTheme } from "./theme";
 
 import Home from "./views/Home";
 
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <main>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
         <Header />
         <Home />
