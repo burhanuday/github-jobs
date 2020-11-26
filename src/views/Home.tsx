@@ -1,7 +1,17 @@
 import * as React from "react";
+import styled from "styled-components";
 import { fetchJobsFromGithubApi } from "../api/jobs";
 import JobCard from "../components/JobCard/JobCard";
 import { Job } from "../interfaces/Job";
+
+const Container = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1110px;
+  width: 100%;
+  margin: 120px auto 0px auto;
+  grid-column-gap: 30px;
+`;
 
 export interface HomeProps {}
 
@@ -20,7 +30,7 @@ const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <div>
+    <Container>
       {jobs.map((job) => (
         <JobCard
           company={job.company}
@@ -31,7 +41,7 @@ const Home: React.FC<HomeProps> = () => {
           createdAt={job.created_at}
         />
       ))}
-    </div>
+    </Container>
   );
 };
 
