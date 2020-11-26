@@ -24,7 +24,7 @@ export const lightTheme = {
 export const darkTheme = {
   primary: colors.violet,
   primaryLight: colors.lightViolet,
-  body: colors.lightGrey,
+  body: colors.midnight,
   text: colors.darkGrey,
   heading: colors.white,
   white: colors.white,
