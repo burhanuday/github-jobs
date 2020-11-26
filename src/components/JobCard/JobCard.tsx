@@ -11,6 +11,8 @@ const Container = styled.div`
   border-radius: 6px;
   padding: 32px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Duration = styled(Text)`
@@ -37,6 +39,10 @@ const CompanyLogo = styled.img`
   object-fit: contain;
 `;
 
+const Company = styled(Text)`
+  flex: 1;
+`;
+
 export interface JobCardProps {
   company: string;
   companyLogo: string;
@@ -56,7 +62,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
         {dateToString(new Date(props.createdAt))} • {props.type}
       </Duration>
       <H3>{props.title}</H3>
-      <Text>{props.company}</Text>
+      <Company>{props.company}</Company>
       <Location>{props.location}</Location>
     </Container>
   );
