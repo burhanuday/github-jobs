@@ -11,8 +11,7 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 const Container = styled.header`
   height: 160px;
   position: relative;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-image: url(${headerBackgroundMobile});

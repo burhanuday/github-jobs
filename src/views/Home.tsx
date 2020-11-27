@@ -6,11 +6,22 @@ import { Job } from "../interfaces/Job";
 
 const Container = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   max-width: 1110px;
   width: 100%;
   margin: 120px auto 0px auto;
   grid-column-gap: 30px;
+  grid-row-gap: 49px;
+  justify-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 export interface HomeProps {}
