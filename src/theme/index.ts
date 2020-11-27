@@ -46,5 +46,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
     margin: 0;
     padding: 0;
     font-family: 'Kumbh Sans', sans-serif;
+    transition: all 0.2s ease-in;
   }
 `;
