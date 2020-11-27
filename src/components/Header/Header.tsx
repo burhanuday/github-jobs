@@ -4,6 +4,7 @@ import styled from "styled-components";
 import headerBackgroundDesktop from "../../assets/desktop/bg-pattern-header.svg";
 
 import logo from "../../assets/desktop/logo.svg";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 const Container = styled.header`
   background: url(${headerBackgroundDesktop});
@@ -18,12 +19,24 @@ export const Logo = styled.img`
   left: 165px;
 `;
 
-export interface HeaderProps {}
+const ThemeSwitcherContainer = styled.div`
+  position: absolute;
+  top: 44px;
+  right: 165px;
+`;
 
-const Header: React.FC<HeaderProps> = () => {
+export interface HeaderProps {
+  theme: string;
+  toggleTheme: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   return (
     <Container>
       <Logo src={logo} />
+      <ThemeSwitcherContainer>
+        <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+      </ThemeSwitcherContainer>
     </Container>
   );
 };

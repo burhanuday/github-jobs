@@ -20,7 +20,7 @@ function App() {
     <main>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
-        <Header />
+        <Header theme={theme} toggleTheme={toggleTheme} />
         <Home />
       </ThemeProvider>
     </main>
