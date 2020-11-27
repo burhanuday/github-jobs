@@ -6,6 +6,7 @@ import Text from "../Typography/Text";
 
 const Container = styled.div`
   max-width: 350px;
+  width: 100%;
   min-height: 228px;
   background-color: ${({ theme }) => theme.card};
   border-radius: 6px;
