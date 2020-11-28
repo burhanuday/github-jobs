@@ -1,6 +1,7 @@
-import * as React from "react";
+import { useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { fetchJobsFromGithubApi } from "../api/jobs";
+import Button from "../components/Button/Button";
 import JobCard from "../components/JobCard/JobCard";
 import { Job } from "../interfaces/Job";
 
@@ -26,14 +27,22 @@ const Grid = styled.section`
 
 const Container = styled.div``;
 
+const LoadMoreButtonContainer = styled.div`
+  margin: 56px 0px;
+  display: flex;
+  justify-content: center;
+`;
+
 export interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
-  const [jobs, setJobs] = React.useState<Job[]>([]);
-  const [page, setPage] = React.useState<number>(0);
-  const [hasMore, setHasMore] = React.useState(true);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [page, setPage] = useState<number>(0);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const fetchJobs = React.useCallback(async () => {
+  const fetchJobs = useCallback(async () => {
+    setLoading(true);
     const jobs: Job[] = await fetchJobsFromGithubApi(page);
 
     setJobs((currentJobs) => {
@@ -43,9 +52,10 @@ const Home: React.FC<HomeProps> = () => {
     if (jobs.length < 50) {
       setHasMore(false);
     }
+    setLoading(false);
   }, [page]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchJobs();
   }, []);
 
@@ -64,6 +74,12 @@ const Home: React.FC<HomeProps> = () => {
           />
         ))}
       </Grid>
+
+      <LoadMoreButtonContainer>
+        <Button onClick={fetchJobs} disabled={!hasMore || loading}>
+          Load more
+        </Button>
+      </LoadMoreButtonContainer>
     </Container>
   );
 };
