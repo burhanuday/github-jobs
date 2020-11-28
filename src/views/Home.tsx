@@ -15,10 +15,10 @@ const Grid = styled.section`
   grid-column-gap: 30px;
   grid-row-gap: 49px;
   justify-items: center;
+  padding: 24px;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    justify-items: start;
   }
 
   @media (min-width: 1200px) {
