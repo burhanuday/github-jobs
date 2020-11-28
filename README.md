@@ -69,12 +69,3 @@ As mentioned above, there are a number of ways to host your project for free. We
 1. [Sign up to Vercel](https://bit.ly/fem-vercel-signup) and go through the onboarding flow, ensuring your GitHub account is connected by using their [Vercel for GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github) integration.
 2. Connect your project to Vercel from the ["Import project" page](https://vercel.com/import), using the "From Git Repository" button and selecting the project you want to deploy.
 3. Once connected, every time you `git push`, Vercel will create a new [deployment](https://vercel.com/docs/v2/platform/deployments) and the deployment URL will be shown on your [Dashboard](https://vercel.com/dashboard). You will also receive an email for each deployment with the URL.
-
-### Submit your code
-
-Once you've finished the challenge, send me an email (akhil.r.nadendla@gmail.com) with the following links:
-
-1. A link to your code either as a github repo or a downloadable .zip file
-2. A link to the deployed web app (see instructions above)
-
-If you have any questions during the course of the challenge, feel free to reach out at akhil.r.nadendla@gmail.com
