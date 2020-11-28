@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { fetchJobsFromGithubApi } from "../api/jobs";
 import Button from "../components/Button/Button";
 import JobCard from "../components/JobCard/JobCard";
+import { jobCardLogoColors } from "../constants/jobCardLogoColors";
 import { Job } from "../interfaces/Job";
 
 const Grid = styled.section`
@@ -62,17 +63,23 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <Container>
       <Grid>
-        {jobs.map((job) => (
-          <JobCard
-            key={job.id}
-            company={job.company}
-            companyLogo={job.company_logo}
-            location={job.location}
-            title={job.title}
-            type={job.type}
-            createdAt={job.created_at}
-          />
-        ))}
+        {jobs.map((job, index) => {
+          const jobCardLogoColor =
+            jobCardLogoColors[index % jobCardLogoColors.length];
+
+          return (
+            <JobCard
+              key={job.id}
+              company={job.company}
+              companyLogo={job.company_logo}
+              location={job.location}
+              title={job.title}
+              type={job.type}
+              createdAt={job.created_at}
+              jobCardLogoColor={jobCardLogoColor}
+            />
+          );
+        })}
       </Grid>
 
       <LoadMoreButtonContainer>

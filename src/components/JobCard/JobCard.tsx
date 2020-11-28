@@ -24,8 +24,8 @@ const Location = styled(H4)`
   color: ${({ theme }) => theme.primary};
 `;
 
-const CompanyLogoContainer = styled.div`
-  background-color: #df6dae;
+const CompanyLogoContainer = styled.div<{ jobCardLogoColor: string }>`
+  background-color: ${({ jobCardLogoColor }) => jobCardLogoColor};
   height: 50px;
   width: 50px;
   position: absolute;
@@ -51,12 +51,13 @@ export interface JobCardProps {
   title: string;
   type: string;
   createdAt: string;
+  jobCardLogoColor: string;
 }
 
 const JobCard: React.FC<JobCardProps> = (props) => {
   return (
     <Container>
-      <CompanyLogoContainer>
+      <CompanyLogoContainer jobCardLogoColor={props.jobCardLogoColor}>
         <CompanyLogo src={props.companyLogo} />
       </CompanyLogoContainer>
       <Duration>
