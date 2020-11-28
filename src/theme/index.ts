@@ -19,6 +19,7 @@ export const lightTheme = {
   heading: colors.veryDarkBlue,
   white: colors.white,
   card: colors.white,
+  button: colors.violet,
 };
 
 export const darkTheme = {
@@ -29,6 +30,7 @@ export const darkTheme = {
   heading: colors.white,
   white: colors.white,
   card: colors.veryDarkBlue,
+  button: colors.veryDarkBlue,
 };
 
 export const GlobalStyles = createGlobalStyle<{ theme: typeof lightTheme }>`
