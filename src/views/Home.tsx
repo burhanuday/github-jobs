@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { fetchJobsFromGithubApi } from "../api/jobs";
 import Button from "../components/Button/Button";
 import JobCard from "../components/JobCard/JobCard";
+import SearchBar from "../components/SearchBar/SearchBar";
 import { jobCardLogoColors } from "../constants/jobCardLogoColors";
 import { Job } from "../interfaces/Job";
 
@@ -41,6 +42,7 @@ const Home: React.FC<HomeProps> = () => {
   const [page, setPage] = useState<number>(0);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
 
   const fetchJobs = useCallback(async () => {
     setLoading(true);
@@ -60,10 +62,15 @@ const Home: React.FC<HomeProps> = () => {
     fetchJobs();
   }, []);
 
+  const filteredJobs = query
+    ? jobs.filter((job) => job.title.includes(query))
+    : jobs;
+
   return (
     <Container>
+      <SearchBar query={query} setQuery={setQuery} />
       <Grid>
-        {jobs.map((job, index) => {
+        {filteredJobs.map((job, index) => {
           const jobCardLogoColor =
             jobCardLogoColors[index % jobCardLogoColors.length];
 
